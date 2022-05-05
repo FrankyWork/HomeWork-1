@@ -5,15 +5,25 @@
  *                  -   в) *используя вывод со знаком $.
  */
 
-//Анкета
+//Main - Анкета
 package main
 
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"os"
 	"strings"
 )
+
+//Функция ошибки
+func eError(x string) string {
+	if len(x) <= 2 {
+		fmt.Println("***Ошибка***")
+		log.Fatal()
+	}
+	return x
+}
 
 //Основная функция
 func main() {
@@ -24,38 +34,23 @@ func main() {
 	//Ввод имени
 	fmt.Println("Введите ваше имя :")
 	inputFirstName, _ := reader.ReadString('\n')
-	if len(inputFirstName) <= 2 {
-		fmt.Println("Вводи свое имя!")
-		return
-	}
+	eError(inputFirstName)
 	//Ввод фамилии
 	fmt.Println("Введите фамилию :")
 	inputLastName, _ := reader.ReadString('\n')
-	if len(inputLastName) <= 2 {
-		fmt.Println("Вводи свою фамилию!")
-		return
-	}
+	eError(inputLastName)
 	//Ввод возраста
 	fmt.Println("Введите возраст :")
 	inputAge, _ := reader.ReadString('\n')
-	if len(inputAge) <= 2 {
-		fmt.Println("Вводи свой возраст!")
-		return
-	}
+	eError(inputAge)
 	//Ввод роста
 	fmt.Println("Введите рост :")
 	inputGrowth, _ := reader.ReadString('\n')
-	if len(inputGrowth) <= 2 {
-		fmt.Println("Вводи свой рост!")
-		return
-	}
+	eError(inputGrowth)
 	//Ввод веса
 	fmt.Println("Введите вес :")
 	inputWeight, _ := reader.ReadString('\n')
-	if len(inputWeight) <= 2 {
-		fmt.Println("Вводи свой вес!")
-		return
-	}
+	eError(inputWeight)
 
 	//Вывод введенных параметров
 	fmt.Printf("\n Вас зовут : \n %v %v Ваш возраст : \n %v\n Ваш рост : \n %v\n Ваш вес : \n %v\n",
